@@ -75,8 +75,6 @@ deleteInput.addEventListener('click', () => {
 
 percent.addEventListener('click', () => {
     values = [];
-    // values.push(displayInput.textContent);
-    // values.push('/');
     displayInput.innerText = eval(displayInput.textContent + '/ 100');
 });
 
