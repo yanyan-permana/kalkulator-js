@@ -90,7 +90,7 @@ divider.addEventListener('click', () => {
 times.addEventListener('click', () => {
     values = [];
     values.push(displayInput.textContent);
-    values.push('*');
+    values.push('X');
     displayInput.innerText = values.join('');
 });
 
