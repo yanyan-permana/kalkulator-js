@@ -17,51 +17,17 @@ const times = document.getElementById('times');
 const minus = document.getElementById('minus');
 const plus = document.getElementById('plus');
 const result = document.getElementById('result');
-let values = [];
 
-zero.addEventListener('click', () => {
-    displayInput.innerText = displayInput.textContent == '0' ? parseFloat(displayInput.textContent) + parseFloat(zero.textContent) : displayInput.textContent + zero.textContent;
-});
+function getNum(num) {
+    num.addEventListener('click', () => {
+        displayInput.innerText = displayInput.textContent == '0' ? parseFloat(displayInput.textContent) + parseFloat(num.textContent) : displayInput.textContent + num.textContent;
+    });
+}
+const number = [zero, one, two, three, four, five, six, seven, eight, nine];
 
-one.addEventListener('click', () => {
-    displayInput.innerText = displayInput.textContent == '0' ? parseFloat(displayInput.textContent) + parseFloat(one.textContent) : displayInput.textContent + one.textContent;
-});
-
-two.addEventListener('click', () => {
-    displayInput.innerText = displayInput.textContent == '0' ? parseFloat(displayInput.textContent) + parseFloat(two.textContent) : displayInput.textContent + two.textContent;
-});
-
-three.addEventListener('click', () => {
-    displayInput.innerText = displayInput.textContent == '0' ? parseFloat(displayInput.textContent) + parseFloat(three.textContent) : displayInput.textContent + three.textContent;
-});
-
-four.addEventListener('click', () => {
-    displayInput.innerText = displayInput.textContent == '0' ? parseFloat(displayInput.textContent) + parseFloat(four.textContent) : displayInput.textContent + four.textContent;
-});
-
-five.addEventListener('click', () => {
-    displayInput.innerText = displayInput.textContent == '0' ? parseFloat(displayInput.textContent) + parseFloat(five.textContent) : displayInput.textContent + five.textContent;
-});
-
-six.addEventListener('click', () => {
-    displayInput.innerText = displayInput.textContent == '0' ? parseFloat(displayInput.textContent) + parseFloat(six.textContent) : displayInput.textContent + six.textContent;
-});
-
-seven.addEventListener('click', () => {
-    displayInput.innerText = displayInput.textContent == '0' ? parseFloat(displayInput.textContent) + parseFloat(seven.textContent) : displayInput.textContent + seven.textContent;
-});
-
-eight.addEventListener('click', () => {
-    displayInput.innerText = displayInput.textContent == '0' ? parseFloat(displayInput.textContent) + parseFloat(eight.textContent) : displayInput.textContent + eight.textContent;
-});
-
-nine.addEventListener('click', () => {
-    displayInput.innerText = displayInput.textContent == '0' ? parseFloat(displayInput.textContent) + parseFloat(nine.textContent) : displayInput.textContent + nine.textContent;
-});
-
+number.map(value => getNum(value));
 clear.addEventListener('click', () => {
     displayInput.innerText = 0;
-    values = [];
 });
 
 deleteInput.addEventListener('click', () => {
@@ -74,21 +40,38 @@ deleteInput.addEventListener('click', () => {
 });
 
 percent.addEventListener('click', () => {
-    values = [];
+    const values = [];
+    values.push(displayInput.textContent + " ");
+    values.push("%" + " ");
     displayInput.innerText = eval(displayInput.textContent + '/ 100');
 });
 
+function evaluate(symbolName, symbol) {
+    symbolName.addEventListener('click', () => {
+        const values = [];
+        values.push(displayInput.textContent + " ");
+        values.push(symbol + " ");
+        displayInput.innerText = values.join('');
+    });
+}
+
+evaluate(divider, "/");
+evaluate(times, "*");
+evaluate(minus, "-");
+evaluate(plus, "+");
+/*
 divider.addEventListener('click', () => {
     values = [];
     values.push(displayInput.textContent);
     values.push('/');
     displayInput.innerText = values.join('');
+    console.log(values);
 });
 
 times.addEventListener('click', () => {
     values = [];
     values.push(displayInput.textContent);
-    values.push('X');
+    values.push('*');
     displayInput.innerText = values.join('');
 });
 
@@ -105,8 +88,8 @@ plus.addEventListener('click', () => {
     values.push('+');
     displayInput.innerText = values.join('');
 });
+*/
 
 result.addEventListener('click', () => {
-    values = [];
     displayInput.textContent = eval(displayInput.textContent);
 });
