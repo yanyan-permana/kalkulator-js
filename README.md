@@ -1,3 +1,3 @@
 # kalkulator-js
-Kalkulator javascript
+Kalkulator Javascript
 Demo: https://kalkulator-js-1653.netlify.app/

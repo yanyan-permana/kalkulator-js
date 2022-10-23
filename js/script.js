@@ -75,7 +75,9 @@ deleteInput.addEventListener('click', () => {
 
 percent.addEventListener('click', () => {
     values = [];
-    displayInput.innerText = eval(displayInput.textContent + '/ 100');
+    const str = displayInput.textContent;
+    const newStr = str.replace('X', '*');
+    displayInput.innerText = eval(newStr + '/100');
 });
 
 divider.addEventListener('click', () => {
@@ -108,5 +110,7 @@ plus.addEventListener('click', () => {
 
 result.addEventListener('click', () => {
     values = [];
-    displayInput.textContent = eval(displayInput.textContent);
+    const str = displayInput.textContent;
+    const newStr = str.replace('X', '*');
+    displayInput.innerText = eval(newStr);
 });
